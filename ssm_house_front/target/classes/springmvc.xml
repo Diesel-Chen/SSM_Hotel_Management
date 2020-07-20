@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+           ">
+
+    <!--扫描controller 包-->
+    <context:component-scan base-package="cn.chenchen.controller"/>
+
+
+    <!--配置视图解析器-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--配置自定义类型转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <!--set注入自己写的类型转换-->
+            <set>
+                <bean class="cn.chenchen.utils.String2DateConverter"/>
+                <bean class="cn.chenchen.utils.String2DateConverter2"/>
+            </set>
+        </property>
+    </bean>
+    <!--静态资源过滤-->
+    <mvc:default-servlet-handler/>
+
+    <!--开启 其他两个器 适配器 处理器映射器组件生效,conversion-service 类型转换器生效-->
+    <mvc:annotation-driven />
+
+
+
+</beans>

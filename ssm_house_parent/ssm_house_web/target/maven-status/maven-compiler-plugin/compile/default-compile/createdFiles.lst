@@ -1,0 +1,6 @@
+cn\chenchen\controller\UserController.class
+cn\chenchen\controller\PermissionController.class
+cn\chenchen\controller\HouseController.class
+cn\chenchen\controller\OrderController.class
+cn\chenchen\controller\RoleController.class
+cn\chenchen\controller\MemberController.class

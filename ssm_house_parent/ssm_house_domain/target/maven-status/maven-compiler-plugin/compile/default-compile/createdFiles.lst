@@ -1,0 +1,9 @@
+cn\chenchen\domain\UserInfo.class
+cn\chenchen\domain\HouseCount.class
+cn\chenchen\domain\Order.class
+cn\chenchen\domain\House.class
+cn\chenchen\domain\ResultInfo.class
+cn\chenchen\domain\Role.class
+cn\chenchen\domain\SelectDate.class
+cn\chenchen\domain\Member.class
+cn\chenchen\domain\Permission.class

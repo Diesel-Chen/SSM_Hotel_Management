@@ -1,0 +1,12 @@
+cn\chenchen\service\RoleService.class
+cn\chenchen\service\impl\RoleServiceImpl.class
+cn\chenchen\service\UserService.class
+cn\chenchen\service\PermissionService.class
+cn\chenchen\service\MemberService.class
+cn\chenchen\service\HouseService.class
+cn\chenchen\service\impl\HouseServiceImpl.class
+cn\chenchen\service\impl\PermissionServiceImpl.class
+cn\chenchen\service\OrderService.class
+cn\chenchen\service\impl\MemberServiceImpl.class
+cn\chenchen\service\impl\OrderServiceImpl.class
+cn\chenchen\service\impl\UserServiceImpl.class

@@ -1,0 +1,6 @@
+cn\chenchen\dao\OrderDao.class
+cn\chenchen\dao\PermissionDao.class
+cn\chenchen\dao\UserDao.class
+cn\chenchen\dao\HouseDao.class
+cn\chenchen\dao\MemberDao.class
+cn\chenchen\dao\RoleDao.class
