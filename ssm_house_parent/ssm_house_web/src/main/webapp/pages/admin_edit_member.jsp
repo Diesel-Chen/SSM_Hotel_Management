@@ -1,7 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
 <html>
 
 <head>
@@ -120,6 +127,7 @@
     <link rel="stylesheet" href="../plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet" href="../plugins/bootstrap-slider/slider.css">
     <link rel="stylesheet" href="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -136,159 +144,101 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                客房信息管理
-                <small>客房信息查询</small>
+                会员信息管理
+                <small>会员信息修改</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="${pageContext.request.contextPath}/pages/admin_main.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="${pageContext.request.contextPath}/house/findAllByPage?page=1&size=5">客房信息管理</a></li>
-                <li class="active">客房信息查询</li>
+                <li><a href="${pageContext.request.contextPath}/pages/admin_add_member.jsp">会员信息管理</a></li>
+                <li class="active">会员信息修改</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
-
-        <!-- 正文区域 -->
         <section class="content">
 
-            <!-- .box-body -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">列表</h3>
-                </div>
+            <form action="${pageContext.request.contextPath}/member/update" method="post">
+                <div class="panel panel-default mytab">
+                    <div class="panel-heading">修改会员信息</div>
+                    <div class="row data-type">
+                        <input type="hidden" value="${member.mid}" name="mid">
+                        <div class="col-md-2 title">会员号</div>
+                        <div class="col-md-10 data text">
+                            <input type="text" name="userName" value="${member.userName}">
+                        </div>
 
-                <div class="box-body">
+                        <div class="col-md-2 title">密码:</div>
+                        <div class="col-md-10 data">
+                            <input type="password" name="passWord" value="${member.passWord}">
+                        </div>
 
-                    <!-- 数据表格 -->
-                    <div class="table-box">
+                        <div class="col-md-2 title">昵称:</div>
+                        <div class="col-md-10 data text">
+                            <input type="text" name="nickName" value="${member.nickName}">
+                        </div>
 
-                        <!--工具栏-->
-                        <div class="pull-left">
+                        <div class="col-md-2 title">姓名:</div>
+                        <div class="col-md-10 data text">
+                            <input type="text" name="realName" value="${member.realName}">
+                        </div>
+
+
+
+                        <div class="col-md-2 title">性别:</div>
+                        <div class="col-md-10 data line-height36">
                             <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick='location.href="${pageContext.request.contextPath}/pages/houser_add_house.jsp"'><i class="fa fa-file-o"></i> 新建</button>
-                                </div>
+                                <c:if test="${member.sex =='男' || member.sex == null}">
+                                    <select name="sex">
+                                        <option value="男" selected>男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                </c:if>
+                                <c:if test="${member.sex =='女' }">
+                                    <select name="sex">
+                                        <option value="男">男</option>
+                                        <option value="女" selected>女</option>
+                                    </select>
+                                </c:if>
+
                             </div>
                         </div>
-                        <!--工具栏/-->
 
-                        <!--数据列表-->
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="" style="padding-right:0px;">
-                                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
-                                </th>
-                                <th class="sorting_asc">序号</th>
-                                <th class="sorting">房间名</th>
-                                <th class="sorting">房间状态</th>
-                                <th class="sorting">房间价格</th>
-                                <th class="sorting">房间号</th>
-                                <th class="text-center">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <c:forEach items="${pageInfo.list}" var="house" varStatus="state">
-
-                                <tr>
-                                    <td><input name="ids" type="checkbox"></td>
-                                    <td>${(pageInfo.pageNum-1)*pageInfo.size+state.index+1}</td>
-                                    <td>${house.houseName}</td>
-                                    <td>${house.houseState}</td>
-                                    <td>${house.housePrice}</td>
-                                    <td>${house.houseNum}</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/house/findHouseById?id=${house.hid}"'>修改</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/house/delete?id=${house.hid}"'>删除</button>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-
-
-
-
-                            </tbody>
-                            <!--
-                        <tfoot>
-                        <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
-                        </tr>
-                        </tfoot>-->
-                        </table>
-                        <!--数据列表/-->
-
-
-                    </div>
-                    <!-- 数据表格 /-->
-
-
-                </div>
-                <!-- /.box-body -->
-
-                <!-- .box-footer-->
-                <div class="box-footer">
-                    <div class="pull-left">
-                        <div class="form-group form-inline">
-                            总共${pageInfo.pages} 页，共<font color="red">${pageInfo.total}</font>条数据。 每页
-                            <select class="form-control" id="change" onchange="changePageSize()">
-                                <option value="1">请选择</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7 </option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select> 条
+                        <div class="col-md-2 title">联系手机:</div>
+                        <div class="col-md-10 data text">
+                            <input type="text" name="telephone" value="${member.telephone}">
                         </div>
+
+                        <div class="col-md-2 title">身份证号:</div>
+                        <div class="col-md-10 data text">
+                            <input type="text" name="identificationNum" value="${member.identificationNum}">
+                        </div>
+
+
+                        <div class="col-md-2 title">电子邮箱:</div>
+                        <div class="col-md-10 data text">
+                            <input type="text" name="email" value="${member.email}">
+                        </div>
+
+                        <div class="col-md-2 title"></div>
+                        <div class="col-md-10 data line-height36">
+                            <input value="提交" type="submit" class="btn btn-info" ></input>
+                            <input value="重置" type="reset" class="btn btn-info" ></input>
+                        </div>
+
                     </div>
-
-                    <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/house/findAllByPage?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a>
-                            </li>
-                            <li><a href="${pageContext.request.contextPath}/house/findAllByPage?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
-                            <c:forEach begin="1" var="i" end="${pageInfo.pages}">
-
-                                    <li class="curPage"><a href="${pageContext.request.contextPath}/house/findAllByPage?page=${i}&size=${pageInfo.pageSize}">${i}</a></li>
-
-                            </c:forEach>
-                            <li><a href="${pageContext.request.contextPath}/house/findAllByPage?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/house/findAllByPage?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a>
-                            </li>
-                        </ul>
-                    </div>
-
                 </div>
-                <!-- /.box-footer-->
-
-
-            </div>
-
+            </form>
         </section>
-        <!-- 正文区域 /-->
-
     </div>
-    <!-- 内容区域 /-->
 
     <!-- 底部导航 -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0.8
         </div>
-        <strong>Copyright &copy; 2020 <a href="">Diesel_晨研发部</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2017 <a href="">Diesel_晨研发部</a>.</strong> All rights reserved.
     </footer>
     <!-- 底部导航 /-->
 
@@ -341,14 +291,6 @@
 <script src="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="../plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 <script>
-
-    function changePageSize(){
-        //获取下拉框的值
-        var pageSize = $("#change").val();
-        //向服务器发送请求，改变每页显示条数
-        location.href="${pageContext.request.contextPath}/house/findAllByPage?page=1&size="+pageSize;
-    }
-
     $(document).ready(function() {
         // 选择框
         $(".select2").select2();
@@ -371,27 +313,27 @@
 
 
     $(document).ready(function() {
+        $('#datepicker-a3').datepicker({
+            autoclose: true,
+            language: 'zh-CN'
+        });
+    });
 
+
+    $(document).ready(function() {
+        $('#datepicker-a6').datepicker({
+            autoclose: true,
+            language: 'zh-CN'
+        });
+    });
+
+
+    $(document).ready(function() {
         // 激活导航位置
         setSidebarActive("order-manage");
-
-        // 列表按钮
-        $("#dataList td input[type='checkbox']").iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            increaseArea: '20%'
-        });
-        // 全选操作
-        $("#selall").click(function() {
-            var clicks = $(this).is(':checked');
-            if (!clicks) {
-                $("#dataList td input[type='checkbox']").iCheck("uncheck");
-            } else {
-                $("#dataList td input[type='checkbox']").iCheck("check");
-            }
-            $(this).data("clicks", !clicks);
-        });
     });
 </script>
 </body>
 
-</html><!---->
+</html>
+<!---->

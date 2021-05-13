@@ -17,6 +17,7 @@
 	<security:http pattern="/img/**" security="none"/>
 	<security:http pattern="/js/**" security="none"/>
 	<security:http pattern="/plugins/**" security="none"/>
+	<security:http pattern="/pages/**" security="none"/>
 	<!--静态资源-->
 
 	 <!--后台页面 登录页面、失败页面-->

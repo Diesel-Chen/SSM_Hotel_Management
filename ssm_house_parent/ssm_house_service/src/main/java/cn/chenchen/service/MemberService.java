@@ -24,4 +24,10 @@ public interface MemberService {
 
     //插入一条记录并显示自增id
     Integer register2(Member member);
+
+    //删除会员
+    void delete(int id);
+
+    //查询会员详情
+    Member FindById(int id);
 }

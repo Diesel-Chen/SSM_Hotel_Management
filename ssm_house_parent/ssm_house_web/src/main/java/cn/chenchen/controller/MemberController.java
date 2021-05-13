@@ -11,6 +11,7 @@ import cn.chenchen.utils.HanZiToPinYinUtils;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -74,7 +75,7 @@ public class MemberController {
         request.getSession().invalidate();
         Member member1 = memberDao.findById(member.getMid());
         request.getSession().setAttribute("member",member1);
-        return "member_management";
+        return "redirect:findAllByPage";
     }
 
     //修改密码
@@ -121,6 +122,23 @@ public class MemberController {
         orderService.addOrder2(order);
         return "cashier_CheckIn";
 
+    }
+
+    //删除会员
+    @RequestMapping("/delete")
+    public String deleteById(@RequestParam(name = "id",required = true) int id){
+        memberService.delete(id);
+        return "redirect:findAllByPage";
+    }
+
+    //查询会员详情
+    @RequestMapping("/findById")
+    public ModelAndView findById(@RequestParam(name = "id",required = true) int id){
+        ModelAndView mv = new ModelAndView();
+        Member member= memberService.FindById(id);
+        mv.addObject("member",member);
+        mv.setViewName("admin_edit_member");
+        return mv;
     }
 
 

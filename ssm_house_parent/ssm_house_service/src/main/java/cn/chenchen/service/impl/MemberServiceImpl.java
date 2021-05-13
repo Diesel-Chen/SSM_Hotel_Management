@@ -51,4 +51,14 @@ public class MemberServiceImpl implements MemberService {
         Member m = memberDao.findByUserName(member.getUserName());
         return m.getMid();
     }
+
+    @Override
+    public void delete(int id) {
+        memberDao.delete(id);
+    }
+
+    @Override
+    public Member FindById(int id) {
+        return memberDao.findById(id);
+    }
 }

@@ -28,8 +28,8 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public House findById(int hid) {
-        return houseDao.findById(hid);
+    public House findById(int id) {
+        return houseDao.findById(id);
     }
 
     @Override
@@ -103,5 +103,15 @@ public class HouseServiceImpl implements HouseService {
     @Override
     public void addHouse(House house) {
         houseDao.addHouse(house);
+    }
+
+    @Override
+    public void editHouse(House house) {
+        houseDao.editHouse(house);
+    }
+
+    @Override
+    public void delete(int id) {
+        houseDao.delete(id);
     }
 }

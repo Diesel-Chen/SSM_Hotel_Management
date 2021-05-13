@@ -71,5 +71,12 @@ public class RoleController {
         return mv;
 
     }
+
+    //删除角色
+    @RequestMapping("/deleteRole.do")
+    public String deleteById(@RequestParam(name = "id",required = true)String roleId) throws Exception{
+        roleService.deleteRoleById(roleId);
+        return "redirect:findAll.do";
+    }
 }
 

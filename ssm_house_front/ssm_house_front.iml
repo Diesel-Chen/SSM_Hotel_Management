@@ -14,7 +14,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="ssm_house_front" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>

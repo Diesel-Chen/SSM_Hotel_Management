@@ -1,10 +1,7 @@
 package cn.chenchen.dao;
 
 import cn.chenchen.domain.House;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,8 +18,8 @@ public interface HouseDao {
     List<House> findByName(String houseName);
 
     //根据id查找房间
-    @Select("select * from house where hid = #{hid}")
-    House findById(int hid);
+    @Select("select * from house where hid = #{id}")
+    House findById(int id);
 
     //根据id修改房间状态为预订
     @Update("update house set houseState = '预订' where hid = #{hid}")
@@ -86,4 +83,10 @@ public interface HouseDao {
 
     @Insert("insert into house(houseName,houseState,housePrice,houseNum) values(#{houseName},#{houseState},#{housePrice},#{houseNum})")
     void addHouse(House house);
+
+    @Update("update house set houseName = #{houseName},houseState = #{houseState},housePrice = #{housePrice},houseNum = #{houseNum} where hid = #{hid}")
+    void editHouse(House house);
+
+    @Delete("delete from house where hid = #{id}")
+    void delete(int id);
 }

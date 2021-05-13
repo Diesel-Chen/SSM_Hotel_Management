@@ -170,7 +170,6 @@
                             <div class="form-group form-inline">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" title="新建" onclick='location.href="${pageContext.request.contextPath}/pages/admin_add_member.jsp"'><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除" onclick='confirm("你确认要删除吗？")'><i class="fa fa-trash-o"></i> 删除</button>
                                 </div>
                             </div>
                         </div>
@@ -209,8 +208,8 @@
                                     <td>${member.identificationNum}</td>
                                     <td>${member.email}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>修改</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>删除</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/member/findById?id=${member.mid}"'>修改</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/member/delete?id=${member.mid}"'>删除</button>
                                     </td>
                                 </tr>
                             </c:forEach>

@@ -174,6 +174,30 @@ public class HouseController {
         return "redirect:findAllByPage";
     }
 
+    @RequestMapping("/edit")
+    public String editHouse(House house){
+        houseService.editHouse(house);
+        return "redirect:findAllByPage";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(int id){
+        houseService.delete(id);
+        return "redirect:findAllByPage";
+    }
+
+    //根据id查找房间详情
+    @RequestMapping("/findHouseById")
+    public ModelAndView findHouseById(@RequestParam(name = "id" , required = true) int id){
+        ModelAndView mv = new ModelAndView();
+        House house = houseService.findById(id);
+        System.out.println(house);
+        mv.addObject("house",house);
+        mv.setViewName("houser_edit_house");
+        return mv;
+    }
+
+
 
 
 

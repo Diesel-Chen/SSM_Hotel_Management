@@ -14,7 +14,7 @@ public interface HouseService {
     List<House> findByName(String houseName);
 
     //根据id查找房间
-    House findById(int hid);
+    House findById(int id);
 
     //查询全部房间
     List<House> findAllHouse();
@@ -45,4 +45,8 @@ public interface HouseService {
     List<House> findAllByPage(int page, int size);
 
     void addHouse(House house);
+
+    void editHouse(House house);
+
+    void delete(int id);
 }

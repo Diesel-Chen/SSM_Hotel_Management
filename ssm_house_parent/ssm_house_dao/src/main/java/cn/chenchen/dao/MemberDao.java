@@ -1,10 +1,7 @@
 package cn.chenchen.dao;
 
 import cn.chenchen.domain.Member;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -44,4 +41,8 @@ public interface MemberDao {
     //根据用户名查
     @Select("select * from member where userName = #{userName}")
     Member findByUserName(String userName);
+
+    //删除用户
+    @Delete("delete from member where mid = #{id}")
+    void delete(int id);
 }
