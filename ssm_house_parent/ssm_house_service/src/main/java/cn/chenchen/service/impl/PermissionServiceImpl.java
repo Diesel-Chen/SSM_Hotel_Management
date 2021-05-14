@@ -19,6 +19,11 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
+    public void delete(int id) {
+        permissionDao.delete(id);
+    }
+
+    @Override
     public List<Permission> findAll() throws Exception{
         return permissionDao.findAll();
     }

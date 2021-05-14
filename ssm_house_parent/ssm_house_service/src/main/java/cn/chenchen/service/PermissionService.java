@@ -8,4 +8,6 @@ public interface PermissionService {
     public List<Permission> findAll() throws Exception;
 
     void save(Permission permission) throws Exception;
+
+    void delete(int id);
 }

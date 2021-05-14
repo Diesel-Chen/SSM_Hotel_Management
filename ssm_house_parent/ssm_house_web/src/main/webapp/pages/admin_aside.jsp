@@ -6,7 +6,7 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
+				<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
 				<p><security:authentication property="principal.username"></security:authentication></p>
@@ -33,7 +33,6 @@
 			<li id="admin-index"><a href="${pageContext.request.contextPath}/pages/admin_main.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 			<!-- 菜单 -->
-			<security:authorize access="hasRole('MANAGER')">
 
 				<li class="treeview">
 					<a href="#">
@@ -66,11 +65,9 @@
 					</ul>
 				</li>
 
-			</security:authorize>
 
 
 
-			<security:authorize access="hasRole('STAFF1')">
 
 				<li class="treeview">
 					<a href="#">
@@ -144,9 +141,7 @@
 					</ul>
 				</li>
 
-			</security:authorize>
 
-			<security:authorize access="hasRole('STAFF2')">
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-table"></i> <span>客房清洁打扫</span>
@@ -190,7 +185,6 @@
 
 				</ul>
 			</li>
-			</security:authorize>
 
 		</ul>
 	</section>

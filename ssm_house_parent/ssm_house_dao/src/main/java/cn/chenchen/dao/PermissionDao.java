@@ -1,6 +1,7 @@
 package cn.chenchen.dao;
 
 import cn.chenchen.domain.Permission;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -16,4 +17,7 @@ public interface PermissionDao {
 
     @Insert("insert into permission(permissionName,url) values(#{permissionName},#{url})")
     void save(Permission permission) throws Exception;
+
+    @Delete("delete from permission where id = #{id}")
+    void delete(int id);
 }
