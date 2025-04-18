@@ -11,29 +11,29 @@
 - 使用PageHelper分页插件做分页
 
 ## 系统组织结构图
-
-![Snipaste_2020-07-20_19-30-42](https://image.dieselchen.work/uPic/2021/05/14/Snipaste_2020-07-20_19-30-42.png)
+ 
+![Snipaste_2020-07-20_19-30-42](https://img.gwjzc.top/uPic/2021/05/14/Snipaste_2020-07-20_19-30-42.png)
 
 ## 系统功能模块图（前台）
 
-![Snipaste_2020-07-20_19-31-21](https://image.dieselchen.work/uPic/2021/05/14/Snipaste_2020-07-20_19-31-21.png)
+![Snipaste_2020-07-20_19-31-21](https://img.gwjzc.top/uPic/2021/05/14/Snipaste_2020-07-20_19-31-21.png)
 
 ## 系统功能模块图（后台）
 
-![Snipaste_2020-07-20_19-31-55](https://image.dieselchen.work/uPic/2021/05/14/Snipaste_2020-07-20_19-31-55.png)
+![Snipaste_2020-07-20_19-31-55](https://img.gwjzc.top/uPic/2021/05/14/Snipaste_2020-07-20_19-31-55.png)
 
 ## 部分运行页面
 
 ### 前台页面
 
-![image-20210514175548828](https://image.dieselchen.work/uPic/2021/05/14/image-20210514175548828.png)
+![image-20210514175548828](https://img.gwjzc.top/uPic/2021/05/14/image-20210514175548828.png)
 
-![image-20210514175603584](https://image.dieselchen.work/uPic/2021/05/14/image-20210514175603584.png)
+![image-20210514175603584](https://img.gwjzc.top/uPic/2021/05/14/image-20210514175603584.png)
 
 ### 后台页面
 
-![Snipaste_2020-07-20_19-32-30](https://image.dieselchen.work/uPic/2021/05/14/Snipaste_2020-07-20_19-32-30.png)
+![Snipaste_2020-07-20_19-32-30](https://img.gwjzc.top/uPic/2021/05/14/Snipaste_2020-07-20_19-32-30.png)
 
-![Snipaste_2020-07-20_19-32-50](https://image.dieselchen.work/uPic/2021/05/14/Snipaste_2020-07-20_19-32-50.png)
+![Snipaste_2020-07-20_19-32-50](https://img.gwjzc.top/uPic/2021/05/14/Snipaste_2020-07-20_19-32-50.png)
 
-![Snipaste_2020-07-20_19-33-11](https://image.dieselchen.work/uPic/2021/05/14/Snipaste_2020-07-20_19-33-11.png)
+![Snipaste_2020-07-20_19-33-11](https://img.gwjzc.top/uPic/2021/05/14/Snipaste_2020-07-20_19-33-11.png)
